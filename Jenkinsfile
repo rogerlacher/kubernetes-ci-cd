@@ -22,6 +22,10 @@ node {
 
     stage "Deploy"
 
-        kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
+        // kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
+        // don't want to have "manual-deployment.yaml" running after "deployment.yaml", as the later one overrides
+        // deployment of image with name 127.0.0.1/hello-kenzan:$BUILD_TAG by image with name 127.0.0.1/hello-kenzan:latest
+
+        kubernetesDeploy configs: "applications/${appName}/k8s/deployment.yaml", kubeconfigId: 'kenzan_kubeconfig'
 
 }

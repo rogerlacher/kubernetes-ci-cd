@@ -91,7 +91,7 @@ spec:
     serviceName: puzzle
     servicePort: 3000
   rules:
-  - host: puzzle.192.168.99.100.xip.io
+  - host: puzzle.192.168.99.110.xip.io
     http:
       paths:
       - path: /

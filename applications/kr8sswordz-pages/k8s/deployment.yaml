@@ -46,7 +46,7 @@ spec:
     serviceName: kr8sswordz
     servicePort: 80
   rules:
-  - host: kr8sswordz.192.168.99.100.xip.io
+  - host: kr8sswordz.192.168.99.110.xip.io
     http:
       paths:
       - path: /

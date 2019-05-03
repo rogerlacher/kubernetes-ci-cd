@@ -18,6 +18,9 @@ app.use(cors());
 
 etcd = new Etcd("http://example-etcd-cluster-client-service:2379");
 etcd.mkdirSync('pod-list');
+// initialize the list with 1 podId for Cr8sswordz to load initially
+// Roger Lacher, 03.05.2019
+etcd.setSync("pod-list/" + req.params.podId, req.params.podId);
 
 var watcher = etcd.watcher("pod-list", null, {recursive: true});
 watcher.on("change", function(val) {
